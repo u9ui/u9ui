@@ -1,5 +1,4 @@
 <style>
-@import url("mdui/dist/css/mdui.css");
 html,
 body {
   margin: 0;
@@ -40,13 +39,14 @@ body {
 }
 </style>
 <template>
-  <div class="container">
+  <div class="context">
     <div class="container">
       <div class="header">
-          (C) vipx 2018
       </div>
       <div class="content">
         <button @click="clickIt">点击</button>
+          <ui-input name="username" v-model="value" label="用户名" type="username" maxlength="100"></ui-input>
+          <ui-input name="password" v-model="password" label="密码" type="password" maxlength="5"></ui-input>
       </div>
       <div class="footer">
           (C) vipx 2018
@@ -55,17 +55,22 @@ body {
   </div>
 </template>
 <script>
+import UiInput from "./components/input/UiInput";
 export default {
   data() {
-    return {};
+    return {
+      value: "",
+      password: ""
+    };
   },
   methods: {
     clickIt: function(e) {
-      this.$mdui.alert("abc");
+      console.log(this);
+      this.$mdui.alert(JSON.stringify(e), "abc");
     }
   },
   computed: {},
   watch: {},
-  components: {}
+  components: { UiInput }
 };
 </script>
