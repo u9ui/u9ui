@@ -1,5 +1,10 @@
 import Vue from "vue";
 
+//import "mdui/dist/css/mdui.css"
+import mdui from "mdui"
+import VueMdui from "./utils/vue-mdui"
+Vue.use(VueMdui, mdui);
+
 import axios from "./utils/http"
 import VueAxios from "./utils/vue-axios";
 Vue.use(VueAxios, axios);
