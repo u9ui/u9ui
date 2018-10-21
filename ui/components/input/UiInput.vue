@@ -1,23 +1,45 @@
 <style scoped>
 </style>
 <template>
-  <div :class="{'ui-input mdui-textfield': true,
+  <div
+    :class="{'ui-input mdui-textfield': true,
         'mdui-textfield-floating-label': floating,
         'mdui-textfield-invalid': false
-      }">
+      }"
+    ref="i-input"
+  >
     <i v-if="'username'==typex" class="mdui-icon material-icons">account_circle</i>
     <i v-else-if="'password'==typex" class="mdui-icon material-icons">lock</i>
     <i v-else-if="'email'==typex" class="mdui-icon material-icons">email</i>
     <i v-else-if="'message'==typex" class="mdui-icon material-icons">textsms</i>
-    <label class="mdui-textfield-label" v-if="label">{{label}}</label>
-    <input class="mdui-textfield-input" v-if="!isTextarea" :type="type"
-          :name="name" :value="value" @input="onInput"
-          :required="isRequired" :maxlength="maxlength"
-          :placeholder="placeholder" :disabled="isDisabled">
-    <textarea class="mdui-textfield-input" v-if="isTextarea" :rows="rows"
-          :name="name" :value="value" @input="onInput"
-          :required="isRequired" :maxlength="maxlength"
-          :placeholder="placeholder" :disabled="isDisabled"/>
+    <i v-else-if="icon" class="mdui-icon material-icons">{{icon}}</i>
+    <label v-if="label" class="mdui-textfield-label">{{label}}</label>
+    <textarea
+      v-if="isTextarea"
+      class="mdui-textfield-input"
+      :name="name"
+      :value="value"
+      @input="onInput"
+      :required="isRequired"
+      :maxlength="maxlength"
+      :rows="rows"
+      :placeholder="placeholder"
+      :disabled="isDisabled"
+    ></textarea>
+    <input
+      v-else
+      class="mdui-textfield-input"
+      :type="type"
+      :name="name"
+      :value="value"
+      @input="onInput"
+      :required="isRequired"
+      :maxlength="maxlength"
+      :placeholder="placeholder"
+      :disabled="isDisabled"
+    >
+    <div class="mdui-textfield-error">密码至少 6 位，且包含大小写字母</div>
+    <div class="mdui-textfield-helper">请输入至少 6 位，且包含大小写字母的密码</div>
   </div>
 </template>
 <script>
@@ -35,6 +57,9 @@ export default {
     type: {
       type: String,
       default: "text"
+    },
+    icon: {
+      type: String
     },
     maxlength: {
       type: [Number, String],
@@ -76,7 +101,9 @@ export default {
         return Type.isBoolStr(v);
       }
     },
-    placeholder: String
+    placeholder: String,
+    helperMsg: String,
+    errorMsg: String
   },
   data() {
     return {};
@@ -96,6 +123,8 @@ export default {
     floating: function() {
       if (this.value) {
         return false;
+      } else if (this.placeholder) {
+        return false;
       }
       return this.$type.toBool(this.float);
     },
@@ -109,7 +138,12 @@ export default {
       return false;
     }
   },
-  watch: {},
-  components: {}
+  watch: {
+    value: function(newValue, oldValue) {}
+  },
+  components: {},
+  updated: function() {
+    this.$mdui.updateTextFields(this.$refs["i-input"]);
+  }
 };
 </script>

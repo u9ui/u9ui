@@ -45,11 +45,13 @@ body {
       </div>
       <div class="content">
         <button @click="clickIt">点击</button>
-          <ui-input name="username" v-model="value" label="用户名" type="username" maxlength="100"></ui-input>
-          <ui-input name="password" v-model="password" label="密码" type="password" maxlength="5"></ui-input>
+        <ui-input name="username" v-model="value" label="用户名" type="username" required="true" maxlength="100"></ui-input>
+        <ui-input name="password" v-model="password" label="密码" type="password" placeholder="" maxlength="5"></ui-input>
+        <ui-input v-model="password" icon="adb" label="kaka" placeholder="abccccc"></ui-input>
+        <ui-input v-model="value" icon="adb" label="Message" type="Message" maxlength="50"></ui-input>
       </div>
       <div class="footer">
-          (C) vipx 2018
+        (C) vipx 2018
       </div>
     </div>
   </div>
