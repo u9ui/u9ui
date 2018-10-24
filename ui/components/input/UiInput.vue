@@ -109,8 +109,11 @@ export default {
     return {};
   },
   methods: {
-    onInput: function(e) {
-      this.$emit("input", e.target.value);
+    onInput: function(event) {
+      this.$emit("input", event.target.value);
+    },
+    onBlur:function(event){
+
     }
   },
   computed: {
