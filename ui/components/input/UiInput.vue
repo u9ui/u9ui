@@ -38,8 +38,8 @@
       :placeholder="placeholder"
       :disabled="isDisabled"
     >
-    <div v-if="errorMsg" class="mdui-textfield-error">{{errorMsg}}</div>
-    <div v-if="helperMsg" class="mdui-textfield-helper">{{helperMsg}}</div>
+    <div class="mdui-textfield-error">密码至少 6 位，且包含大小写字母</div>
+    <div class="mdui-textfield-helper">请输入至少 6 位，且包含大小写字母的密码</div>
   </div>
 </template>
 <script>
@@ -112,7 +112,9 @@ export default {
     onInput: function(event) {
       this.$emit("input", event.target.value);
     },
-    onBlur: function(event) {}
+    onBlur:function(event){
+
+    }
   },
   computed: {
     isRequired: function() {
