@@ -1,9 +1,6 @@
 <style>
 @import url("mdui/dist/css/mdui.css");
 </style>
-<template>
-  <div class="ui-base"></div>
-</template>
 <script>
 import Vue from "vue";
 // for type: type.js

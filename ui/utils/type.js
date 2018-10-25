@@ -37,5 +37,18 @@
     }
     return false;
   }
+  type.isNumberStr = function (obj) {
+    //Number Or String con parse Number return true
+    if (type.isUndefined(obj)) {
+      return false;
+    } else if (type.isNull(obj)) {
+      return false;
+    } else if (type.isNumber(obj)) {
+      return true;
+    } else if (type.isString(obj)) {
+      return !isNaN(new Number(obj))
+    }
+    return false;
+  }
   return type;
 })));

@@ -47,11 +47,11 @@ import UiBase from "../_/UiBase";
 import Type from "../../utils/type.js";
 export default {
   extends: UiBase,
+  name: "ui-input",
   props: {
     label: String,
     name: String,
     value: {
-      default: null,
       required: true
     },
     type: {
@@ -130,7 +130,9 @@ export default {
       return this.$type.toBool(this.float);
     },
     typex: function() {
-      return this.type.toLowerCase();
+      if (this.type) {
+        return this.type.toLowerCase();
+      }
     },
     isTextarea: function() {
       if ("textarea" == this.typex || "message" == this.typex) {

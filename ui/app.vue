@@ -41,23 +41,36 @@ body {
 <template>
   <div class="context">
     <div class="container">
-      <div class="header">
-      </div>
+      <div class="header"></div>
       <div class="content">
         <button @click="clickIt">点击</button>
-        <ui-input name="username" v-model="value" label="用户名" type="username" required="true" maxlength="100"></ui-input>
-        <ui-input name="password" v-model="password" label="密码" type="password" placeholder="" maxlength="5"></ui-input>
+        <ui-input
+          name="username"
+          v-model="value"
+          label="用户名"
+          type="username"
+          required="true"
+          maxlength="100"
+        ></ui-input>
+        <ui-input
+          name="password"
+          v-model="password"
+          label="密码"
+          type="password"
+          placeholder=""
+          maxlength="5"
+        ></ui-input>
         <ui-input v-model="password" icon="adb" label="kaka" placeholder="abccccc"></ui-input>
         <ui-input v-model="value" icon="adb" label="Message" type="Message" maxlength="50"></ui-input>
+        <ui-number value="1234"></ui-number>
       </div>
-      <div class="footer">
-        (C) vipx 2018
-      </div>
+      <div class="footer">(C) vipx 2018</div>
     </div>
   </div>
 </template>
 <script>
 import UiInput from "./components/input/UiInput";
+import UiNumber from "./components/input/UiNumber";
 export default {
   data() {
     return {
@@ -73,6 +86,6 @@ export default {
   },
   computed: {},
   watch: {},
-  components: { UiInput }
+  components: { UiInput, UiNumber }
 };
 </script>
