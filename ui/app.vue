@@ -62,7 +62,8 @@ body {
         ></ui-input>
         <ui-input v-model="password" icon="adb" label="kaka" placeholder="abccccc"></ui-input>
         <ui-input v-model="value" icon="adb" label="Message" type="Message" maxlength="50"></ui-input>
-        <ui-number value="1234"></ui-number>
+        <ui-input v-model="value" type="number" maxlength="50"></ui-input>
+        <ui-number v-model="value" hhh="ddddddddd" @blur="changed"></ui-number>
       </div>
       <div class="footer">(C) vipx 2018</div>
     </div>
@@ -79,9 +80,13 @@ export default {
     };
   },
   methods: {
-    clickIt: function(e) {
+    clickIt: function(event) {
       console.log(this);
-      this.$mdui.alert(JSON.stringify(e), "abc");
+      this.$mdui.alert(JSON.stringify(event), "abc");
+    },
+    changed: function(event) {
+      console.log(this);
+      console.log(JSON.stringify(event));
     }
   },
   computed: {},

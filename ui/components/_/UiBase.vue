@@ -16,14 +16,13 @@ import moment from "moment";
 import VueMomentJS from "../../utils/vue/vue-momentjs";
 Vue.use(VueMomentJS, moment);
 export default {
+  extends: {},
+  mixins: [],
+  name: "ui-base",
+  components: {},
+  inheritAttrs: false,
   methods: {},
-  directives: {
-    focus: {
-      inserted: function(el) {
-        el.focus();
-      }
-    }
-  },
+  directives: {},
   mounted: function() {
     this.$mdui.mutation();
   }
