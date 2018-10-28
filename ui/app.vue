@@ -61,9 +61,10 @@ body {
           maxlength="5"
         ></ui-input>
         <ui-input v-model="password" icon="adb" label="kaka" placeholder="abccccc"></ui-input>
-        <ui-input v-model="value" icon="adb" label="Message" type="Message" maxlength="50"></ui-input>
+        <ui-input v-model="value" icon="adb" label="Message" rows="3" type="Message" maxlength="50"></ui-input>
         <ui-input v-model="value" type="number" maxlength="50"></ui-input>
         <ui-number v-model="value" hhh="ddddddddd" @blur="changed"></ui-number>
+        <ui-input label="ddddd" icon="adb" value="submit" type="reset"></ui-input>
       </div>
       <div class="footer">(C) vipx 2018</div>
     </div>
